@@ -15,6 +15,6 @@ EXPOSE 5173
 RUN chown -R node /usr/src/app
 USER node
 
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "start"]
 
 
