@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json .
 
 RUN npm install
+RUN npm install -D vitest
 
 COPY . .
 
@@ -20,6 +21,7 @@ RUN chown -R node /usr/src/app
 USER node
 
 CMD ["npm", "run", "start", "--", "--host=0.0.0.0"]
+
 
 
 
