@@ -4,7 +4,8 @@ FROM node:18
 WORKDIR /usr/src/app
 
 # Install ALL app dependencies
-COPY package*.json ./
+COPY package*.json .
+RUN npm install @sveltejs/adapter-node
 RUN npm ci
 
 # Bundle app source
@@ -18,6 +19,9 @@ EXPOSE 5173
 
 # Run the app
 CMD ["npm", "run", "preview", "--host"]
+
+
+
 
 
 

@@ -1,12 +1,7 @@
 version: '3.4'
-
 services:
-  basicsvelte:
-    image: basicsvelte
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: production
+  app:
+    build: .
     ports:
-      - 5173:5173
+      - "5173:5173"
+    command: ["npm", "run", "preview", "--host"]
