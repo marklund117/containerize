@@ -7,12 +7,10 @@ WORKDIR /usr/src/app
 
 COPY package*.json .
 
-RUN npm install
-RUN npm install -D vitest
+RUN npm ci --only=production
 
 COPY . .
 
-RUN npm install --production
 RUN npm install vite @sveltejs/adapter-node
 
 EXPOSE 5173
