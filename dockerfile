@@ -19,7 +19,8 @@ EXPOSE 5173
 RUN chown -R node /usr/src/app
 USER node
 
-CMD ["npm", "run", "start", "--", "--host", "${HOST}"]
+CMD ["npm", "run", "start", "--", "--host=0.0.0.0"]
+
 
 
 
