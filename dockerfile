@@ -1,24 +1,25 @@
-FROM node:lts-alpine
+FROM node:18
 
-ENV NODE_ENV=production
-
+# Create app directory
 WORKDIR /usr/src/app
 
-COPY package.json .
-COPY package-lock.json .
+# Install ALL app dependencies
+COPY package*.json ./
+RUN npm ci
 
-RUN npm install
-
+# Bundle app source
 COPY . .
 
-RUN npm build
+# Build the app
+RUN npm run build
 
+# Expose the port
 EXPOSE 5173
 
-RUN chown -R node /usr/src/app
-USER node
+# Run the app
+CMD ["npm", "run", "preview", "--host"]
 
-CMD ["npm", "run", "start", "--", "--host=0.0.0.0"]
+
 
 
 
