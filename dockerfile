@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port
-EXPOSE 4173
+EXPOSE 5173
 
 # Run the app
 CMD npm run dev
